@@ -32,3 +32,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+
+# Additional exclusions
+.pytest_cache/
+.env
+.env.*
+!.env.example
