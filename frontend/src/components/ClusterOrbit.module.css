@@ -1,0 +1,48 @@
+.orbitCard { position: relative; isolation: isolate; width: min(100%, 560px); min-width: 0; padding: 12px 14px 9px; overflow: hidden; border: 1px solid rgba(158,176,255,.18); border-radius: 17px; color: #f4f7ff; background: radial-gradient(ellipse at 70% 8%, rgba(101,93,255,.21), transparent 54%), linear-gradient(135deg,#10172b,#111b2d 54%,#0c2631); box-shadow: 0 12px 32px rgba(29,41,89,.16), inset 0 1px rgba(255,255,255,.07); }
+.orbitCard::before { position: absolute; z-index: -1; top: -110px; right: -20px; width: 260px; height: 260px; border: 1px solid rgba(132,161,255,.09); border-radius: 50%; box-shadow: 0 0 0 25px rgba(132,161,255,.025),0 0 0 52px rgba(132,161,255,.016); content: ''; pointer-events: none; }
+.orbitHeader { position: relative; z-index: 2; display: flex; min-height: 28px; align-items: center; gap: 10px; }
+.orbitTitle { display: flex; min-width: 0; align-items: center; gap: 8px; }
+.liveIcon { display: grid; width: 28px; height: 28px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(151,165,255,.22); border-radius: 9px; color: #bdb7ff; background: rgba(137,124,255,.11); }
+.orbitTitle strong,.orbitTitle small { display: block; }
+.orbitTitle strong { color: #f3f4ff; font-size: 10px; font-weight: 760; letter-spacing: -.01em; }
+.orbitTitle small { margin-top: 2px; color: rgba(199,210,242,.54); font-size: 7px; font-weight: 780; letter-spacing: .12em; }
+.liveCount { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; color: rgba(220,229,250,.76); font-size: 8px; font-weight: 700; white-space: nowrap; }
+.liveCount i { width: 6px; height: 6px; border-radius: 50%; background: #7cf7d2; box-shadow: 0 0 8px rgba(124,247,210,.65); }
+.sceneWrap { position: relative; height: 205px; margin: 1px -5px -5px; }
+.sceneCanvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.sceneCanvas:active { cursor: grabbing; }
+.sceneCanvas:focus-visible { border-radius: 10px; outline: 2px solid rgba(134,157,255,.75); outline-offset: -3px; }
+.nodeTooltip { position: absolute; z-index: 4; width: 180px; padding: 10px; border: 1px solid rgba(178,193,235,.2); border-radius: 12px; color: #f1f3ff; background: rgba(12,18,35,.92); box-shadow: 0 12px 30px rgba(0,0,0,.27); backdrop-filter: blur(12px); pointer-events: none; transform: translate(12px,-50%); }
+.nodeTooltip[data-side="left"] { transform: translate(calc(-100% - 12px),-50%); }
+.nodeTooltip[data-side="center"] { transform: translate(-50%,-50%); }
+.tooltipHeader { display: flex; align-items: center; gap: 7px; padding-bottom: 7px; border-bottom: 1px solid rgba(190,205,245,.13); }
+.tooltipDot { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: #91a0b8; }
+.tooltipDot[data-online="true"] { background: #54d5b1; box-shadow: 0 0 8px rgba(84,213,177,.55); }
+.tooltipHeader strong { color: #f1f3ff; font-size: 10px; font-weight: 780; }
+.tooltipHeader small { margin-left: auto; color: #aab6ce; font-size: 7px; }
+.tooltipMetrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; padding: 8px 0 7px; }
+.tooltipMetrics span { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.tooltipMetrics small { color: rgba(194,205,229,.58); font-size: 6px; font-weight: 800; letter-spacing: .09em; }
+.tooltipMetrics strong { color: #eff2fc; font-family: var(--font-mono); font-size: 9px; font-weight: 650; }
+.tooltipRole { display: block; padding-top: 6px; border-top: 1px solid rgba(190,205,245,.1); color: rgba(194,205,229,.62); font-size: 7px; }
+.lightOrbit { border-color: color-mix(in srgb, var(--accent-indigo) 14%, var(--border)); color: var(--text-primary); background: radial-gradient(ellipse at 65% 0%, color-mix(in srgb, var(--accent-indigo) 8%, transparent), transparent 55%), linear-gradient(135deg,color-mix(in srgb, var(--bg-card) 95%, white),color-mix(in srgb, var(--accent-cyan) 4%, var(--bg-card))); box-shadow: var(--shadow-sm); }
+.lightOrbit::before { border-color: color-mix(in srgb, var(--accent-indigo) 9%, transparent); box-shadow: 0 0 0 25px color-mix(in srgb, var(--accent-indigo) 2.5%, transparent),0 0 0 52px color-mix(in srgb, var(--accent-indigo) 1.7%, transparent); }
+.lightOrbit .orbitTitle strong { color: var(--text-primary); }
+.lightOrbit .orbitTitle small { color: var(--text-muted); }
+.lightOrbit .liveCount { color: var(--text-secondary); }
+.lightOrbit .liveIcon { border-color: color-mix(in srgb, var(--accent-indigo) 19%, transparent); color: var(--accent-indigo); background: color-mix(in srgb, var(--accent-indigo) 8%, var(--bg-card)); }
+.lightOrbit .nodeTooltip { border-color: var(--border); color: var(--text-primary); background: color-mix(in srgb, var(--bg-card) 94%, transparent); box-shadow: var(--shadow-lg); }
+.lightOrbit .tooltipHeader { border-color: var(--border); }
+.lightOrbit .tooltipHeader strong,.lightOrbit .tooltipMetrics strong { color: var(--text-primary); }
+.lightOrbit .tooltipHeader small,.lightOrbit .tooltipMetrics small,.lightOrbit .tooltipRole { color: var(--text-muted); }
+.lightOrbit .tooltipRole { border-color: var(--border); }
+.authOrbit { width: 100%; max-width: 650px; margin-top: 22px; padding: 13px 17px 8px; border-color: rgba(158,176,255,.17); border-radius: 18px; background: radial-gradient(ellipse at 53% 45%,rgba(98,86,230,.16),transparent 52%),linear-gradient(145deg,rgba(25,33,58,.97),rgba(15,23,41,.97)); }
+.authOrbit .orbitTitle strong { color: #dcdcff; font-family: var(--font-mono); font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
+.authOrbit .orbitTitle small { margin-top: 5px; color: rgba(172,188,221,.6); font-size: 7px; letter-spacing: .14em; }
+.authOrbit .liveCount { padding: 5px 8px; border: 1px solid rgba(124,247,210,.15); border-radius: 999px; color: #7cf7d2; background: rgba(16,185,129,.08); font-family: var(--font-mono); font-size: 7px; letter-spacing: .06em; text-transform: uppercase; }
+.authOrbit .liveCount i { width: 5px; height: 5px; }
+.authOrbit .sceneWrap { height: 154px; }
+.authOrbit .nodeTooltip { width: 165px; }
+@media (max-width: 720px) { .sceneWrap { height: 185px; } .authOrbit .sceneWrap { height: 145px; } }
+@media (max-width: 520px) { .orbitCard { padding: 10px 10px 7px; border-radius: 14px; } .sceneWrap { height: 155px; } .authOrbit { margin-top: 14px; padding: 10px 9px 7px; } .authOrbit .sceneWrap { height: 120px; } .liveCount { font-size: 7px; } }
+@media (max-width: 720px) { .sceneWrap { height: 205px; } .authOrbit .sceneWrap { height: 195px; } }

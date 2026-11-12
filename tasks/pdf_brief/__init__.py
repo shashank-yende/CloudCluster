@@ -1,0 +1,1 @@
+"""PDF brief generation workload."""

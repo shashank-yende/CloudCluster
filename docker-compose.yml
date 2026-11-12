@@ -1,0 +1,121 @@
+services:
+  controller:
+    build:
+      context: .
+      dockerfile: controller/Dockerfile
+    container_name: cloud_controller
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storage:/app/storage
+      - cloudcluster-auth:/app/.auth
+    environment:
+      - CLOUDCLUSTER_JWT_SECRET=${CLOUDCLUSTER_JWT_SECRET:-}
+      - CLOUDCLUSTER_JWT_SECRET_FILE=/app/.auth/jwt-secret
+      - NODE1_URL=http://node1:8001
+      - NODE2_URL=http://node2:8002
+      - NODE3_URL=http://node3:8003
+      - NODE4_URL=http://node4:8004
+      - NODE5_URL=http://node5:8005
+    depends_on:
+      - node1
+      - node2
+      - node3
+      - node4
+      - node5
+    networks:
+      - cloud-net
+
+  node1:
+    build:
+      context: .
+      dockerfile: nodes/node1/Dockerfile
+    container_name: cloud_node1
+    ports:
+      - "8001:8001"
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    volumes:
+      - ./storage:/app/storage
+    networks:
+      - cloud-net
+
+  node2:
+    build:
+      context: .
+      dockerfile: nodes/node2/Dockerfile
+    container_name: cloud_node2
+    ports:
+      - "8002:8002"
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+    volumes:
+      - ./storage:/app/storage
+    networks:
+      - cloud-net
+
+  node3:
+    build:
+      context: .
+      dockerfile: nodes/node3/Dockerfile
+    container_name: cloud_node3
+    ports:
+      - "8003:8003"
+    deploy:
+      resources:
+        limits:
+          cpus: '8.0'
+          memory: 16G
+    volumes:
+      - ./storage:/app/storage
+    networks:
+      - cloud-net
+
+  node4:
+    build:
+      context: .
+      dockerfile: nodes/node3/Dockerfile
+    container_name: cloud_node4
+    command: ["uvicorn", "nodes.node3.worker:app", "--host", "0.0.0.0", "--port", "8004"]
+    ports:
+      - "8004:8004"
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    volumes:
+      - ./storage:/app/storage
+    networks:
+      - cloud-net
+
+  node5:
+    build:
+      context: .
+      dockerfile: nodes/node3/Dockerfile
+    container_name: cloud_node5
+    command: ["uvicorn", "nodes.node3.worker:app", "--host", "0.0.0.0", "--port", "8005"]
+    ports:
+      - "8005:8005"
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    volumes:
+      - ./storage:/app/storage
+    networks:
+      - cloud-net
+
+networks:
+  cloud-net:
+    driver: bridge
+
+volumes:
+  cloudcluster-auth:

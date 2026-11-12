@@ -1,0 +1,140 @@
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+:root {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color-scheme: light;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Manrope', 'DM Sans', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --bg-primary: #f5f7fb;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fbfcfe;
+  --bg-input: #ffffff;
+  --bg-glass: rgba(255,255,255,.94);
+  --bg-glass-light: #f4f6fa;
+  --border: #e7eaf0;
+  --border-accent: #cbd5e1;
+  --border-focus: #6366f1;
+  --text-primary: #172033;
+  --text-secondary: #58647a;
+  --text-muted: #8993a5;
+  --text-code: #4f46e5;
+  --accent-indigo: #4f46e5;
+  --accent-violet: #6d5ce8;
+  --accent-cyan: #0891b2;
+  --accent-sky: #0284c7;
+  --accent-emerald: #059669;
+  --accent-amber: #b7791f;
+  --accent-rose: #e11d48;
+  --accent-pink: #db2777;
+  --accent-orange: #ea580c;
+  --gradient-hero: linear-gradient(130deg, #f6f8ff, #f7fafc);
+  --gradient-card: #fff;
+  --gradient-accent: linear-gradient(135deg, #5145cd, #7066ea);
+  --gradient-cyan: linear-gradient(135deg, #0891b2, #0284c7);
+  --gradient-emerald: linear-gradient(135deg, #059669, #0d9488);
+  --gradient-rose: linear-gradient(135deg, #e11d48, #db2777);
+  --gradient-amber: linear-gradient(135deg, #d97706, #ea580c);
+  --shadow-sm: 0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.04);
+  --shadow-md: 0 6px 18px rgba(16,24,40,.06);
+  --shadow-lg: 0 18px 50px rgba(16,24,40,.14);
+  --shadow-glow: 0 8px 28px rgba(79,70,229,.1);
+  --shadow-glow-cyan: 0 8px 28px rgba(8,145,178,.1);
+  --radius-sm: 7px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --transition: .18s ease;
+  --transition-slow: .28s ease;
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-primary: #0c111b;
+  --bg-secondary: #111a27;
+  --bg-card: #151e2c;
+  --bg-card-hover: #1b2636;
+  --bg-input: #111a27;
+  --bg-glass: rgba(15,22,33,.94);
+  --bg-glass-light: #1b2636;
+  --border: #273244;
+  --border-accent: #414f68;
+  --border-focus: #8b85ff;
+  --text-primary: #edf1f7;
+  --text-secondary: #a5afbf;
+  --text-muted: #768397;
+  --text-code: #a5a0ff;
+  --accent-indigo: #a5a0ff;
+  --accent-violet: #b5a5ff;
+  --accent-cyan: #4ac7de;
+  --accent-sky: #58b8f2;
+  --accent-emerald: #42c99a;
+  --accent-amber: #efbd68;
+  --accent-rose: #fb7185;
+  --accent-pink: #f472b6;
+  --accent-orange: #fb923c;
+  --gradient-hero: linear-gradient(130deg, #121a2a, #101a25);
+  --gradient-card: #151e2c;
+  --gradient-accent: linear-gradient(135deg, #6259d9, #766ff0);
+  --gradient-cyan: linear-gradient(135deg, #087c99, #126da1);
+  --gradient-emerald: linear-gradient(135deg, #087a5d, #0d7e78);
+  --gradient-rose: linear-gradient(135deg, #a91d42, #a62970);
+  --gradient-amber: linear-gradient(135deg, #98600d, #a53e15);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.18);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.2);
+  --shadow-lg: 0 18px 50px rgba(0,0,0,.36);
+  --shadow-glow: 0 8px 28px rgba(105,96,230,.14);
+  --shadow-glow-cyan: 0 8px 28px rgba(8,145,178,.14);
+}
+
+html { min-width: 320px; scroll-behavior: smooth; scroll-padding-top: 92px; }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 15px;
+  transition: background var(--transition-slow), color var(--transition-slow);
+}
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background: url('/cloudcluster-watermark.svg') no-repeat right -2vw top 60px / min(780px, 72vw);
+  content: '';
+  opacity: .18;
+  pointer-events: none;
+}
+#root { position: relative; z-index: 1; min-height: 100vh; }
+.authChecking { display: flex; min-height: 100vh; align-items: center; justify-content: center; gap: 11px; color: var(--text-secondary); background: var(--bg-primary); font-size: 13px; }
+.authChecking span { width: 15px; height: 15px; border: 2px solid color-mix(in srgb, var(--accent-indigo) 22%, transparent); border-top-color: var(--accent-indigo); border-radius: 50%; animation: spin .75s linear infinite; }
+button, input, select, textarea { font: inherit; }
+button { color: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .58; }
+input, select, textarea { color: inherit; }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-indigo) 42%, transparent);
+  outline-offset: 2px;
+}
+::selection { background: #dcd9ff; color: #25205f; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 50% { opacity: .45; } }
+.animate-fadeInUp { animation: fadeInUp .35s ease both; }
+.animate-fadeIn { animation: fadeIn .25s ease both; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

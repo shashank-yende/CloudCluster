@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.db
+backend/data/.jwt-secret
+backend/data/uploads/*
+backend/data/results/*
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+.env
+.DS_Store

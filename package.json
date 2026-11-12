@@ -1,0 +1,9 @@
+{
+  "name": "cloud-task-management",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "frontend": "npm --prefix frontend run dev"
+  }
+}

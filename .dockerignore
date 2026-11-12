@@ -1,0 +1,14 @@
+.jwt-secret
+.auth/
+.venv/
+venv/
+node_modules/
+frontend/node_modules/
+storage/**
+cloudcluster-studio/
+.pytest_cache/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.db
+*.sqlite3

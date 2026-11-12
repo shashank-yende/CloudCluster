@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+env/
+venv/
+ENV/
+
+# Node / React
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Storage artifacts & database
+.jwt-secret
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/results/*
+!storage/results/.gitkeep
+storage/processing/*
+!storage/processing/.gitkeep
+*.db
+*.sqlite3
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

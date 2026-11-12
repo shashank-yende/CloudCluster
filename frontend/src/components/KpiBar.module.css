@@ -1,0 +1,10 @@
+.grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.card { display: flex; align-items: flex-start; min-width: 0; padding: 17px 15px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-card); box-shadow: var(--shadow-sm); transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition); }
+.card:hover { transform: translateY(-2px); border-color: var(--border-accent); box-shadow: var(--shadow-md); }
+.info { display: flex; flex-direction: column; min-width: 0; gap: 2px; }
+.label { overflow: hidden; color: var(--text-secondary); font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.value { color: var(--text-primary); font-family: var(--font-display); font-size: 23px; font-weight: 700; line-height: 1.25; letter-spacing: -.04em; }
+.sub { overflow: hidden; color: var(--text-muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 1050px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; } .card { padding: 13px 11px; } .value { font-size: 20px; } }
+@media (max-width: 360px) { .grid { grid-template-columns: 1fr; } }
